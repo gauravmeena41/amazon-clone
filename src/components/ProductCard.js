@@ -13,7 +13,7 @@ const ProductCard = ({ id, title, price, description, category, image }) => {
   const [hasPrime] = useState(Math.random() < 0.5);
 
   return (
-    <div className="relative flex flex-col m-5 bg-white z-20 p-10">
+    <div className="relative flex flex-col m-5 bg-white z-20 p-10 lg:hover:shadow-md transition-all duration-300">
       <p className="absolute top-2 right-2 text-xs italic text-gray-400">
         {category}
       </p>
@@ -36,7 +36,7 @@ const ProductCard = ({ id, title, price, description, category, image }) => {
           <p className="text-xs text-gray-500">Free Next-day Delivery</p>
         </div>
       )}
-      <button className="mt-auto button">Add to Cart</button>
+      <button className="button">Add to Cart</button>
     </div>
   );
 };
