@@ -4,19 +4,25 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
+import { signIn, signOut, useSession } from "next-auth/client";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const [session] = useSession();
+  const router = useRouter();
+
   return (
     <header>
       {/* Top nav */}
       <div className="flex items-center bg-amazon_blue h-[60px] p-1 flex-grow py-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
           <Image
+            onClick={() => router.push("/")}
             src="https://cutt.ly/dRTPMfE"
             width={150}
             height={40}
             objectFit="contain"
-            className="cursor-pointer "
+            className="cursor-pointer"
           />
         </div>
         {/* Search bar */}
@@ -29,15 +35,21 @@ const Header = () => {
         </div>
         {/* Right */}
         <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div className="cursor-pointer hover:underline">
-            <p>Hello Gaurav Meena</p>
+          <div
+            onClick={!session ? signIn : signOut}
+            className="cursor-pointer hover:underline"
+          >
+            <p>{session ? `Hello, ${session.user.name}` : "Sign in"}</p>
             <p className="font-extrabold md:text-sm">Account & List</p>
           </div>
           <div className="cursor-pointer hover:underline">
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
-          <div className="relative cursor-pointer hover:underline flex items-center">
+          <div
+            onClick={() => router.push("/checkout")}
+            className="relative cursor-pointer hover:underline flex items-center"
+          >
             <span className="absolute top-0 right-0 md:right-10 w-4 h-4 bg-yellow-secondary rounded-full text-center text-black font-bold">
               2
             </span>

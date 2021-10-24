@@ -20,7 +20,7 @@ export default function Home({ products }) {
     <div className="bg-gray-100">
       <Head>
         <title>Amazon</title>
-        <link rel="icon" href="/amazon.svg" />
+        <link rel="icon" href="/amazon-favicon.svg" />
       </Head>
 
       <Header />
