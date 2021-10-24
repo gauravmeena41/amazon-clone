@@ -17,10 +17,13 @@ const Banner = () => {
           <img loading="lazy" src="https://cutt.ly/8RTOtnZ" alt="" />
         </div>
         <div>
-          <img loading="lazy" src="https://cutt.ly/ZRTOeJ3" alt="" />
+          <img loading="lazy" src="https://cutt.ly/MRYHqSI" alt="" />
         </div>
         <div>
           <img loading="lazy" src="https://cutt.ly/MRTI5mH" alt="" />
+        </div>
+        <div>
+          <img loading="lazy" src="https://cutt.ly/xRYHjur" alt="" />
         </div>
       </Carousel>
     </div>

@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard";
 
 const ProductFeed = ({ products }) => {
   return (
-    <div className="grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:-mt-52 mx-auto">
+    <div className="grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 -mt-24 md:-mt-72 mx-auto">
       {products
         .slice(0, 4)
         .map(({ id, title, price, description, category, image }) => (
@@ -16,7 +16,7 @@ const ProductFeed = ({ products }) => {
             image={image}
           />
         ))}
-      <img className="md:col-span-full" src="https://cutt.ly/ERT7Q9s" alt="" />
+      <img className="md:col-span-full" src="https://cutt.ly/IRYHQVT" alt="" />
       <div className="md:col-span-2">
         {products
           .slice(4, 5)
