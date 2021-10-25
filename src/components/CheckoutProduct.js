@@ -1,6 +1,8 @@
 import { StarIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Currency from "react-currency-formatter";
+import { useDispatch } from "react-redux";
+import { addToCart, removeFromCart } from "../slices/cartSlice";
 
 const CheckoutProduct = ({
   id,
@@ -12,6 +14,26 @@ const CheckoutProduct = ({
   image,
   hasPrime,
 }) => {
+  const dispatch = useDispatch();
+
+  const addItemToCart = () => {
+    const product = {
+      id,
+      title,
+      description,
+      category,
+      image,
+      price,
+      rating,
+      hasPrime,
+    };
+    dispatch(addToCart(product));
+  };
+
+  const removeItemFromCart = () => {
+    dispatch(removeFromCart({ id }));
+  };
+
   return (
     <div className="grid grid-cols-5">
       <Image src={image} width={200} height={200} objectFit="contain" />
@@ -40,9 +62,13 @@ const CheckoutProduct = ({
         )}
       </div>
       {/* Add & Remove button */}
-      <div>
-        {/* <button>Add to Cart</button>
-        <button>Remove from Cart`</button> */}
+      <div className="flex flex-col space-y-2 my-auto justify-self-end">
+        <button onClick={addItemToCart} className="button">
+          Add to Cart
+        </button>
+        <button onClick={removeItemFromCart} className="button">
+          Remove from Cart`
+        </button>
       </div>
     </div>
   );

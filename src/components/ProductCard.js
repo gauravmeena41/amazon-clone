@@ -16,7 +16,7 @@ const ProductCard = ({ id, title, price, description, category, image }) => {
   );
   const [hasPrime] = useState(Math.random() < 0.5);
 
-  const addToCartButton = () => {
+  const addItemToCart = () => {
     const product = {
       id,
       title,
@@ -54,7 +54,7 @@ const ProductCard = ({ id, title, price, description, category, image }) => {
           <p className="text-xs text-gray-500">Free Next-day Delivery</p>
         </div>
       )}
-      <button onClick={() => addToCartButton()} className="button">
+      <button onClick={() => addItemToCart()} className="button">
         Add to Cart
       </button>
     </div>
