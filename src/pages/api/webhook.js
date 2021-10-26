@@ -39,7 +39,7 @@ export default async (req, res) => {
   if (req.method === "POST") {
     const requestBuffer = await buffer(req);
     const payload = requestBuffer.toString();
-    const sig = req.headers("stripe-signature");
+    const sig = req.headers["stripe-signature"];
 
     let event;
 
@@ -59,4 +59,11 @@ export default async (req, res) => {
         .catch((err) => res.status(400).send(`Webhook Error: ${err.message}`));
     }
   }
+};
+
+export const config = {
+  api: {
+    bodyParser: false,
+    externalResolver: true,
+  },
 };
