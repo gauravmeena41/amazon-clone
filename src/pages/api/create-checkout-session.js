@@ -24,8 +24,8 @@ export default async (req, res) => {
     },
     line_items: trasnformedItems,
     mode: "payment",
-    success_url: `https://amazon-clone-r3x7x39xo-gauravmeena41.vercel.app/success`,
-    cancel_url: `https://amazon-clone-r3x7x39xo-gauravmeena41.vercel.app/checkout`,
+    success_url: `${process.env.HOST}/success`,
+    cancel_url: `${process.env.HOST}/checkout`,
     metadata: {
       email,
       images: JSON.stringify(items.map((item) => item.image)),
